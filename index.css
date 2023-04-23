@@ -79,15 +79,19 @@ button img{
     height: 100%;
 }
 
+
+
 .seccion{
     margin: 20px;
 }
 .listcataloge{
     list-style-type: none;
     display: flex;
+    overflow-x: scroll;
 }
-.listcataloge li{
+.listcataloge-div{
     width: max-content;
+    margin: 10px;
 }
 .imgitem{
     height: 200px;
@@ -110,3 +114,4 @@ button img{
     display: flex;
     align-items: center;
 }
+

@@ -35,21 +35,22 @@ class Movie {
         `
     }
 
-    htmlMovie(id){
-        return `<li>
-        <div class="${id}" class="imgitem">
+    htmlMovie(){
+        return `<div class="listcataloge-div">
+        <div class="imgitem">
             <img src="${this.img}" alt="">
         </div>
         <div class="bottomtext">
             <div class="stars">
                 <p>Ratings</p>
-                ${ratingImg}
+                ${this.ratingImg}
             </div>
             <div class="bookmark">
                 <img src="baseline_bookmark_border_white_48dp.png" alt="">
             </div>
         </div>
-        </li>`
+        </div>
+        `
     }
 }
 
@@ -88,13 +89,38 @@ const theOwlHouse = new Movie ("The Owl House",
 "https://www.pluggedin.com/wp-content/uploads/2020/04/the-owl-house.jpg", "7+"
 )
 
-let banner = document.getElementById("top")
-banner.innerHTML = strangerThings.htmlBanner()
+const avatar = new Movie ("Avatar: The Last Airbender",
+"Aang, a 12-year-old boy, must put his childhood aside to impede chaos that the Fire Nation is creating. He embarks on a quest to restore harmony in the nations of Water, Earth and Air.",
+"4.9", `<img src="yellow_fill_star.png" alt=""> <img src="yellow_fill_star.png" alt=""> <img src="yellow_fill_star.png" alt=""> <img src="yellow_fill_star.png" alt=""> <img src="yellow_outline_star.png" alt="">`,
+"https://static.wikia.nocookie.net/avatar/images/7/78/ATLA_FCBD_2011_Cover_Page.png/revision/latest/scale-to-width-down/250?cb=20121121094329",
+"https://deadline.com/wp-content/uploads/2021/02/Avatar-The-Last-Airbender-Legend-Of-Aang-Nickelodeon-Nick-ATLA-ATLOA-e1655304503771.jpg?crop=0px%2C1px%2C1164px%2C653px&resize=681%2C383", 
+"7+")
 
-let movies = [strangerThings, theOwlHouse, voltron, heartstopper, chainsawman]
+const shera = new Movie ("She-Ra and the Princesses of Power", 
+"Adora finds a magical sword that transforms her into She-Ra, a legendary princess. She then decides to join the rebellion against the Horde to free her planet.",
+"4.5", `<img src="yellow_fill_star.png" alt=""> <img src="yellow_fill_star.png" alt=""> <img src="yellow_fill_star.png" alt=""> <img src="yellow_fill_star.png" alt=""> <img src="yellow_outline_star.png" alt="">`,
+"https://m.media-amazon.com/images/M/MV5BNzdiOTJiMWMtYTY0MS00NTUzLWE3OWUtZTc4YzE2YzVmMzdhXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg",
+"https://static.onecms.io/wp-content/uploads/sites/6/2018/11/catra-she-ra-2000.jpg", "12+"
+)
 
-let recommend = document.getElementById("recommend")
+const fullmetal = new Movie ("Fullmetal Alchemist Brotherhood",
+"Brothers Edward and Alphonse Elric search for the Philsopher's Stone, hoping to restore their bodies, which were lost when they attempted to use their alchemy skills to resurrect their deceased mother.",
+"5.0",  `<img src="yellow_fill_star.png" alt=""> <img src="yellow_fill_star.png" alt=""> <img src="yellow_fill_star.png" alt=""> <img src="yellow_fill_star.png" alt=""> <img src="yellow_outline_star.png" alt="">`,
+"https://i.pinimg.com/originals/1d/e4/92/1de492589eadf1870a23e4e5b939a8b0.jpg",
+"https://media.comicbook.com/2017/01/fmab-223459.jpg", "14+")
 
+const banner = document.getElementById("top")
+banner.innerHTML = theOwlHouse.htmlBanner()
+
+const recommend = document.getElementById("recommend")
+const trending = document.getElementById("trending")
+
+let movies = [strangerThings, heartstopper, chainsawman, voltron, theOwlHouse, avatar, shera, fullmetal]
+
+for(let i = 0 ; i < movies.length ; i++){
+    recommend.innerHTML += movies[i].htmlMovie()
+    trending.innerHTML += movies[i].htmlMovie()
+}
 
 
 
